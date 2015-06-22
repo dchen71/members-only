@@ -1,15 +1,23 @@
-<%= form_for(:session, url:login_path) do |f| %>
-	<%= f.label :username %>
-	<%= f.text_field :username %>
+<h2>Sign in</h2>
 
+<% if !flash[:error].nil? %> <!-- Error popup for entering blank data -->
+	<div class="alert alert-error">
+		<strong><%= flash[:error] %></strong>
+	</div>
+<% end %>
+
+<% if flash[:success] %> <!-- Success popup minus button to close it -->
+	<div class="alert alert-success">
+		<strong><%= flash[:success] %></strong>
+	</div>
+<% end %>
+
+<%= form_for(:session, url:login_path) do |f| %>
 	<%= f.label :email %>
-	<%=f.text_field :email %>
+	<%= f.text_field :email %>
 
 	<%= f.label :password %>
 	<%= f.password_field :password %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
-
 	<%= f.submit 'Submit' %>
-<% end %>>
+<% end %>

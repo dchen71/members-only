@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 			flash[:success] = "Post successfully created"
 			redirect_to root_path
 		else
-			flash[:error] = "Title or Content cannot be empty"
+			flash.now[:error] = "Title or Content cannot be empty"
 			render 'new'
 		end
 	end

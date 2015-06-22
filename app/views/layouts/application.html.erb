@@ -8,6 +8,26 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<%= link_to "Member's Only",root_path, class: "navbar-brand" %>
+		</div>
+		<div id="navbar" c;ass="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Home", root_path %></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if !signed_in? %>
+					<li><%=link_to "Log in", login_path %></li>
+				<% else %>
+					<li><%= link_to 'Log out',logout_path %></li>
+				<% end %>	
+			</ul>
+		</div>
+	</div>
+</nav>
+
 <%= yield %>
 
 </body>
